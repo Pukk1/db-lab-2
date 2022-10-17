@@ -4,7 +4,7 @@ CREATE TABLE country
 	name VARCHAR(255) NOT NULL
 );
 
-id -> name
+country.id -> country.name
 
 CREATE TABLE departament
 (
@@ -13,8 +13,8 @@ CREATE TABLE departament
 	name VARCHAR(255) NOT NULL
 );
 
-id -> country_id
-id -> name
+departament.id -> departament.country_id
+departament.id -> departament.name
 
 ALTER TABLE departament ADD CONSTRAINT fk_country 
 	FOREIGN KEY(country_id)
@@ -26,7 +26,7 @@ CREATE TABLE spacemission
 	country_id INT NOT NULL
 );
 
-id -> country_id
+spacemission.id -> spacemission.country_id
 
 ALTER TABLE spacemission ADD CONSTRAINT fk_country_space
 	FOREIGN KEY(country_id)
@@ -60,7 +60,7 @@ CREATE TABLE spaceship
 	name VARCHAR(255) NOT NULL
 );
 
-id -> name
+spaceship.id -> spaceship.name
 
 CREATE TABLE spaceship_spacemission
 (
@@ -88,10 +88,10 @@ CREATE TABLE person
 	gender gender
 );
 
-id -> name
-id -> last_name
-id -> patronymic
-id -> gender
+person.id -> person.name
+person.id -> person.last_name
+person.id -> person.patronymic
+person.id -> person.gender
 
 CREATE TABLE crew_member
 (
@@ -106,7 +106,7 @@ CREATE TABLE crew_member
 			REFERENCES spaceship(id) ON DELETE CASCADE
 );
 
-id -> spaceship_id
+crew_member.id -> crew_member.spaceship_id
 
 CREATE TABLE scientist
 (
